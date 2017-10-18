@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "955063695119",
+    "firebase_url": "https://simplefirebaselogin-b3ce1.firebaseio.com",
+    "project_id": "simplefirebaselogin-b3ce1",
+    "storage_bucket": "simplefirebaselogin-b3ce1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955063695119:android:2be3d823910de3ca",
+        "android_client_info": {
+          "package_name": "com.llamalabb.simplefirebaselogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955063695119-kmrq92ihfekstldvdulpvnkte1r69qor.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.llamalabb.simplefirebaselogin",
+            "certificate_hash": "9a4a9cdd223a14f37db51152dd74ad1014ee4f44"
+          }
+        },
+        {
+          "client_id": "955063695119-pgj8t260p0e5ab4o8947j5vnru3og4nj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo1m9Oki_MTo7qvjjQfNSZByCMvNWo1C0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955063695119-pgj8t260p0e5ab4o8947j5vnru3og4nj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
