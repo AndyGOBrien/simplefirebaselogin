@@ -8,13 +8,13 @@ import com.llamalabb.simplefirebaselogin.BaseView
  */
 interface SignupContract {
     interface View : BaseView<Presenter>{
-        fun showFailure()
+        fun showFailure(msg: String)
         fun showSuccess()
+        fun showPasswordsMismatch()
     }
 
     interface Presenter : BasePresenter{
         fun createAccount(email: String, password: String, confirm: String)
-        fun confirmEmailNotExist(email: String)
         fun confirmPasswordMatch(password: String, confirm: String): Boolean
     }
 }

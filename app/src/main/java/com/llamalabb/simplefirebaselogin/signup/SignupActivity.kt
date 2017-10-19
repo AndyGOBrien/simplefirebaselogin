@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import com.llamalabb.simplefirebaselogin.R
 import com.llamalabb.simplefirebaselogin.utils.Utils
 
@@ -27,25 +26,23 @@ class SignupActivity : AppCompatActivity(), SignupContract.View {
     }
 
     fun onSignupButtonClicked(view: View){
+        val email = mEmailEditText.text.toString()
         val password = mPasswordEditText.text.toString()
         val confirm = mConfirmEditText.text.toString()
-        val email = mEmailEditText.text.toString()
 
-        if(mPresenter.confirmPasswordMatch(password, confirm)) {
-            mPresenter.createAccount(email, password, confirm)
-        } else {
-            showFailure()
-        }
+        mPresenter.createAccount(email, password, confirm)
     }
 
-    override fun showFailure() {
-        Utils.showMessageShort(this, "Signup Failed")
+    override fun showFailure(msg: String) {
+        Utils.showMessageShort(this, msg)
     }
 
     override fun showSuccess() {
         Utils.showMessageShort(this, "Signup Success!")
     }
 
-
+    override fun showPasswordsMismatch() {
+        Utils.showMessageShort(this, "Password entries do not match")
+    }
 
 }

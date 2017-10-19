@@ -1,56 +1,49 @@
 package com.llamalabb.simplefirebaselogin.signup
 
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
+import com.llamalabb.simplefirebaselogin.data.external.SignupService
+
 
 /**
  * Created by andy on 10/18/17.
  */
-class SignupPresenter(val view: SignupContract.View) : SignupContract.Presenter {
-
-    private lateinit var mAuth: FirebaseAuth
-
+class SignupPresenter(val view: SignupContract.View) :
+        SignupContract.Presenter,
+        SignupService.CallBack{
 
     override fun onCreate() {
-        mAuth = FirebaseAuth.getInstance()
+        SignupService.register(this)
     }
-
 
     override fun createAccount(email: String, password: String, confirm: String) {
-        mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener{ task: Task<AuthResult> ->
-                if (task.isSuccessful) {
-                    val user = mAuth.currentUser!!
-                    view.showSuccess()
-                } else {
-                    view.showFailure()
-                }
-            }
+        if(confirmPasswordMatch(password, confirm)) {
+            SignupService.createAccount(email, password)
+        } else {
+            view.showPasswordsMismatch()
+        }
     }
 
-    override fun confirmEmailNotExist(email: String) {
 
+    override fun accountCreationSuccessful() {
+        view.showSuccess()
+    }
+
+    override fun accountCreationFailure(msg: String) {
+        view.showFailure(msg)
     }
 
     override fun confirmPasswordMatch(password: String, confirm: String): Boolean {
-
         if (password == confirm) return true
-
         return false
     }
 
 
     override fun onPause() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onResume() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onDestroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
