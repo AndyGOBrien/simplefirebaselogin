@@ -8,7 +8,7 @@ import com.llamalabb.simplefirebaselogin.data.external.SignupService
  */
 class SignupPresenter(val view: SignupContract.View) :
         SignupContract.Presenter,
-        SignupService.CallBack{
+        SignupService.SignupCallBack {
 
     override fun onCreate() {
         SignupService.register(this)
@@ -21,7 +21,6 @@ class SignupPresenter(val view: SignupContract.View) :
             view.showPasswordsMismatch()
         }
     }
-
 
     override fun accountCreationSuccessful() {
         view.showSuccess()
